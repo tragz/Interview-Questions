@@ -7,7 +7,10 @@ public class BinarySearch {
         Integer l = 0;
         Integer r = array.length;
 
-        while(l <= r) {
+/*        if(r == 0) // empty array
+            return -1;*/
+
+        while(l < r) {
             Integer m = l + (r-l)/2; // over come integer overflow
 
             if(array[m] == value)
