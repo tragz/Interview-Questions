@@ -42,8 +42,30 @@ public class ListNode {
         return prev;                             /// prev now points to the head of the reversed linked list
     }
 
-    public ListNode reverseKElementsLinkedList(ListNode temp, int k) {
-        
+    public ListNode reverseKElementsLinkedList(ListNode head, int K) {
 
-    }
+            if(head == null) return head;
+
+            ListNode curr = head;
+            int count = K;
+
+            while(curr!=null && --count>0) curr=curr.next;
+            if(curr==null) return head;            //// where the number of nodes in the list are less than K
+
+            ListNode noChangeList=curr.next;       //// Pointer to the next node after K elements
+            curr.next=null;
+
+            ListNode reversedOne = reverseLinkedList(head);      //// reverse the K nodes starting from head and return the head of the reversed list
+            head.next=noChangeList;                //// the head now points to tail of reverse K list , point k.next to list of nodes after K nodes
+
+            curr=noChangeList;                     //// update the curr to next lister after the revesesal of K nodes
+            count=K;                               //// Reset the Count to K
+
+            while(curr!=null && --count>0) curr=curr.next; //// move forward K nodes
+
+            if(curr == null) return reversedOne;   //// if curr is poiting to null then there are less than K elements to rotate
+            curr.next = reverseKElementsLinkedList(curr.next, K); //// reverse the next list k elments each point the curr.next to head of the reversed list
+
+            return reversedOne;
+        }
 }
