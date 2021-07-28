@@ -30,4 +30,17 @@ public class BitManupilation {
         }
         return count;
     }
+
+    public Integer superFastParity(Integer value)
+    {
+        System.out.println(Integer.toBinaryString(value));
+        value = value ^ (value >> 16)
+        value ^= value >> 16;
+        value ^= value >> 8;
+        value ^= value >> 4;
+        value ^= value >> 2;
+        value ^= value >> 1;
+
+        return value & 0x1;
+    }
 }

@@ -74,4 +74,13 @@ public class BitManupilationTest {
         assertEquals(expected, actual);
     }
 
+    @Test(timeout=1000)
+    public void testIntegerMaxSuperFastParity() {
+
+        BitManupilation bm = new BitManupilation();
+        Integer expected = 1;
+        Integer actual = bm.superFastParity(Integer.MAX_VALUE-1);
+        assertEquals(expected, actual);
+    }
+
 }
