@@ -34,7 +34,7 @@ public class BitManupilation {
     public Integer superFastParity(Integer value)
     {
         System.out.println(Integer.toBinaryString(value));
-        value = value ^ (value >> 16)
+        value = value ^ (value >> 16);
         value ^= value >> 16;
         value ^= value >> 8;
         value ^= value >> 4;
