@@ -51,8 +51,8 @@ public class ListNodeTest {
 
     @Test
     public void testReverseEveryKElementsLinkedList() {
-        Integer[] array = {10, 20, 30, 40 };
-        Integer[] revArray = {20, 10, 40, 30 };
+        Integer[] array = {10, 20, 30, 40, 1 };
+        Integer[] revArray = {20, 10, 40, 30, 1 };
         ListNode temp = this.head.createLinkeList(array);
         int K = 2;
         ListNode reverseList = head.reverseKElementsLinkedList(temp, K);
