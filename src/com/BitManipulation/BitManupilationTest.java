@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class BitManupilationTest {
 
     @Rule
-    public Timeout globalTimeout = Timeout.seconds(10);
+    public Timeout globalTimeout = Timeout.seconds(1);
 
     @Test(timeout=1000)
     public void testZeroParity() {
@@ -38,12 +38,12 @@ public class BitManupilationTest {
         assertEquals(expected, actual);
     }
 
-    @Test(timeout=11000)
-    public void testNegativeParity() {
+    @Test(timeout=1000)
+    public void testNegativeEvenParity() {
 
         BitManupilation bm = new BitManupilation();
         Integer expected = 0;
-        Integer actual = bm.parity(-1);
+        Integer actual = bm.parity(10);
         assertEquals(expected, actual);
     }
 
@@ -53,6 +53,24 @@ public class BitManupilationTest {
         BitManupilation bm = new BitManupilation();
         Integer expected = 1;
         Integer actual = bm.parity(Integer.MAX_VALUE);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIntegerMinParity() {
+
+        BitManupilation bm = new BitManupilation();
+        Integer expected = 0;
+        Integer actual = bm.parity(Integer.MIN_VALUE);
+        assertEquals(expected, actual);
+    }
+
+    @Test(timeout=1000)
+    public void testIntegerMaxFastParity() {
+
+        BitManupilation bm = new BitManupilation();
+        Integer expected = 1;
+        Integer actual = bm.fastParity(Integer.MAX_VALUE);
         assertEquals(expected, actual);
     }
 
